@@ -14,7 +14,7 @@ def deploy() {
 
 private login() {
     withCredentials([[$class          : 'UsernamePasswordMultiBinding',
-                      credentialsId   : 'cloud-foundry-meetup-user',
+                      credentialsId   : 'cf-user-tmp',
                       usernameVariable: 'CLOUD_FOUNDRY_USERNAME',
                       passwordVariable: 'CLOUD_FOUNDRY_PASSWORD']]) {
         sh "cf login " +
