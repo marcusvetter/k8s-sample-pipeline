@@ -20,7 +20,7 @@ private login() {
         sh "cf login " +
                 "-a \"https://api.eu-west-1.apps.msi.audi.com\" " +
                 "-o \"ABI-3 INNO\" " +
-                "-s \"audi-cloud-day\" " +
+                "-s \"pipeline-showcase\" " +
                 "-u \"${env.CLOUD_FOUNDRY_USERNAME}\" " +
                 "-p \"${env.CLOUD_FOUNDRY_PASSWORD}\" "
     }
@@ -29,7 +29,7 @@ private login() {
 private pushApp() {
     String buildpack = 'https://github.com/cloudfoundry/java-buildpack.git#v3.10'
     String pathToDeployable = 'build/libs/carservice-1.0.0.jar'
-    String appName = 'carservice'
+    String appName = 'showcase-carservice'
     String hostName = 'showcase-carservice'
 
     sh "cf push $appName -b $buildpack -p $pathToDeployable -n $hostName"
