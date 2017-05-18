@@ -14,13 +14,13 @@ def deploy() {
 
 private login() {
     withCredentials([[$class          : 'UsernamePasswordMultiBinding',
-                      credentialsId   : 'cf-user-tmp',
+                      credentialsId   : 'cf-user-audi-cloud-day',
                       usernameVariable: 'CLOUD_FOUNDRY_USERNAME',
                       passwordVariable: 'CLOUD_FOUNDRY_PASSWORD']]) {
         sh "cf login " +
                 "-a \"https://api.eu-west-1.apps.msi.audi.com\" " +
                 "-o \"ABI-3 INNO\" " +
-                "-s \"pipeline-showcase\" " +
+                "-s \"audi-cloud-day\" " +
                 "-u \"${env.CLOUD_FOUNDRY_USERNAME}\" " +
                 "-p \"${env.CLOUD_FOUNDRY_PASSWORD}\" "
     }
